@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #EDA415;
+  --secondary: #003F62;
+}
+
+.banner {
+  background-image: url("../public/banner.png");
+  color: white;
+  background-size: cover;
+}
