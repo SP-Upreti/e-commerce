@@ -17,7 +17,7 @@ export default function Footer() {
                 <div className="newsletter flex items-center rounded-lg">
                     <input type="email" name="" id="" placeholder="Enter email" className="bg-[var(--primary)] px-2 py-1 text-lg rounded-lg" />
                     <div className="plane pe-4">
-                        <button><FontAwesomeIcon icon={faPaperPlane} width={"20px"} /></button>
+                        <button><FontAwesomeIcon icon={faPaperPlane}  /></button>
                     </div>
                 </div>
                 <div className="flex gap-4">

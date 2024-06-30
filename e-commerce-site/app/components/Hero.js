@@ -10,22 +10,30 @@ import { useEffect, useState } from 'react';
 
 export default function Hero() {
     const [data, setData] = useState([]);
-    const url = "https://fakestoreapi.com/products/category/electronics?limit=4"
+    const [data2, setData2] = useState([]);
+    const url = "https://fakestoreapi.com/products/category/electronics?limit=4";
+    const url2 = "https://fakestoreapi.com/products?limit=10"
 
     const fetchData = async () => {
         const req = await fetch(url);
         const res = await req.json();
         setData(res)
     }
+    const fetchData2 = async () => {
+        const req = await fetch(url2);
+        const res = await req.json();
+        setData2(res)
+    }
     useEffect(
         () => {
+            fetchData2()
             fetchData()
         },
         []
     )
 
     return (
-        <section className=" p-16 mt-20">
+        <section className=" p-16">
 
             <div className="">
                 <Swiper
@@ -92,74 +100,26 @@ export default function Hero() {
                     className=''
 
                 >
-                    <SwiperSlide>
-                        <div className="w-[20rem] rounded-lg border border-[var(--secondary)] p-4 flex justify-between items-center">
-                            <div className="h-16 w-16  rounded-full overflow-hidden flex justify-center items-center">
-                                <img src="laptop.png" alt="" className="" />
-                            </div>
-                            <div className="text-[var(--secondary)]">
-                                <h2 className="font-semibold text-lg ">Desktops & Laptops</h2>
-                                <p>{"( 12 items )"}</p>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-
-                    <SwiperSlide>
-                        <div className="w-[20rem] rounded-lg border border-[var(--secondary)] p-4 flex justify-between items-center">
-                            <div className="h-16 w-16  rounded-full  flex justify-center items-center">
-                                <img src="speaker.jpg" alt="" className="" />
-                            </div>
-                            <div className="text-[var(--secondary)]">
-                                <h2 className="font-semibold text-lg ">Speakers & mp3</h2>
-                                <p>{"( 16 items )"}</p>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className="w-[20rem] rounded-lg border border-[var(--secondary)] p-4 flex justify-between items-center">
-                            <div className="h-16 w-16  rounded-full  flex justify-center items-center">
-                                <img src="8 1.png" alt="" className="" />
-                            </div>
-                            <div className="text-[var(--secondary)]">
-                                <h2 className="font-semibold text-lg ">DSLR Camera</h2>
-                                <p>{"( 7 items )"}</p>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className="w-[20rem] rounded-lg border border-[var(--secondary)] p-4 flex justify-between items-center">
-                            <div className="h-16 w-16  rounded-full overflow-hidden flex justify-center items-center">
-                                <img src="laptop.png" alt="" className="" />
-                            </div>
-                            <div className="text-[var(--secondary)]">
-                                <h2 className="font-semibold text-lg ">Desktops & Laptops</h2>
-                                <p>{"( 12 items )"}</p>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-
-                    <SwiperSlide>
-                        <div className="w-[20rem] rounded-lg border border-[var(--secondary)] p-4 flex justify-between items-center">
-                            <div className="h-16 w-16  rounded-full  flex justify-center items-center">
-                                <img src="speaker.jpg" alt="" className="" />
-                            </div>
-                            <div className="text-[var(--secondary)]">
-                                <h2 className="font-semibold text-lg ">Speakers & mp3</h2>
-                                <p>{"( 16 items )"}</p>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className="w-[20rem] rounded-lg border border-[var(--secondary)] p-4 flex justify-between items-center">
-                            <div className="h-16 w-16  rounded-full  flex justify-center items-center">
-                                <img src="8 1.png" alt="" className="" />
-                            </div>
-                            <div className="text-[var(--secondary)]">
-                                <h2 className="font-semibold text-lg ">DSLR Camera</h2>
-                                <p>{"( 7 items )"}</p>
-                            </div>
-                        </div>
-                    </SwiperSlide>
+                    {
+                        data2.map(
+                            (__data, key) => {
+                                console.log(__data)
+                                return (
+                                    <SwiperSlide>
+                                        <div className="w-[20rem] rounded-lg border border-[var(--secondary)] p-4 flex gap-5 justify-between items-center">
+                                            <div className="h-16 w-16  rounded-full overflow-hidden flex justify-center items-center">
+                                                <img src={__data.image} alt="" className="" />
+                                            </div>
+                                            <div className="text-[var(--secondary)]">
+                                                <h2 className="font-semibold text-lg ">{__data.title.slice(0, 17)}...</h2>
+                                                <p>{"( 12 items )"}</p>
+                                            </div>
+                                        </div>
+                                    </SwiperSlide>
+                                )
+                            }
+                        )
+                    }
                 </Swiper>
 
 

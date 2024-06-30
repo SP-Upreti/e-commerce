@@ -2,6 +2,7 @@
 
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function Navbar() {
@@ -26,11 +27,11 @@ export default function Navbar() {
         }
     )
     return (
-        <nav className="fixed w-screen z-[99] " style={{ top: 0 }}>
+        <nav className=" z-[99] " >
             <div className="flex justify-between items-center px-16 py-4 bg-[var(--secondary)] text-white">
                 <div className="flex gap-20 items-center">
                     <div className="">
-                        <img src="logo 1.png" alt="" className="h-[30px]" />
+                        <Link href={"/"}><img src="logo 1.png" alt="" className="h-[30px]" /></Link>
                     </div>
                     <div className="">
                         <form onSubmit={handleSubmit}>
@@ -64,10 +65,10 @@ export default function Navbar() {
                             category.map(
                                 (data, key) => {
                                     return (
-                                        <li
+                                        <Link href={'/category'}><li
                                             key={key}
                                             className="border-b-2 border-transparent cursor-pointer hover:border-blue-900 leading-4"
-                                        >{data}</li>
+                                        >{data}</li></Link>
                                     )
                                 }
                             )
