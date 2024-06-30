@@ -1,5 +1,7 @@
 "use client"
 
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 
 export default function Navbar() {
@@ -9,12 +11,26 @@ export default function Navbar() {
         alert(searchData + " is out of stock.")
         setSearchData("");
     }
+    const [category, setCategory] = useState([]);
+    const url = "https://fakestoreapi.com/products/categories";
+
+    useState(
+        () => {
+            async function fetchData() {
+                const req = await fetch(url)
+                const res = await req.json()
+                setCategory(res)
+            }
+            fetchData(),
+                []
+        }
+    )
     return (
         <nav className="fixed w-screen z-[99] " style={{ top: 0 }}>
             <div className="flex justify-between items-center px-16 py-4 bg-[var(--secondary)] text-white">
                 <div className="flex gap-20 items-center">
                     <div className="">
-                        <img src="logo 1.png" alt=""  className="h-[30px]"/>
+                        <img src="logo 1.png" alt="" className="h-[30px]" />
                     </div>
                     <div className="">
                         <form onSubmit={handleSubmit}>
@@ -37,17 +53,25 @@ export default function Navbar() {
                 <div className="">
                     <ul className="flex items-center gap-10">
                         <li>Login</li>
-                        <li>Cart</li>
+                        <li><FontAwesomeIcon icon={faShoppingCart} width={"30px"} /></li>
                     </ul>
                 </div>
             </div>
             <div className="px-16 py-1 flex justify-between items-center bg-slate-300">
                 <div className="">
                     <ul className="flex gap-12">
-                        <li>Computers</li>
-                        <li>Mobile</li>
-                        <li>Camera</li>
-                        <li>Utilities</li>
+                        {
+                            category.map(
+                                (data, key) => {
+                                    return (
+                                        <li
+                                            key={key}
+                                            className="border-b-2 border-transparent cursor-pointer hover:border-blue-900 leading-4"
+                                        >{data}</li>
+                                    )
+                                }
+                            )
+                        }
                     </ul>
                 </div>
                 <div className="">
