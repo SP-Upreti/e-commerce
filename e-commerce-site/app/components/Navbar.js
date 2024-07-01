@@ -27,7 +27,7 @@ export default function Navbar() {
         }
     )
     return (
-        <nav className=" z-[99] " >
+        <nav className=" z-[99] fixed w-screen" >
             <div className="flex justify-between items-center px-16 py-4 bg-[var(--secondary)] text-white">
                 <div className="flex gap-20 items-center">
                     <div className="">
@@ -53,7 +53,7 @@ export default function Navbar() {
                 </div>
                 <div className="">
                     <ul className="flex items-center gap-10">
-                        <li>Login</li>
+                        <Link href={'/login'}><li>Login</li></Link>
                         <li><FontAwesomeIcon icon={faShoppingCart} width={"30px"} /></li>
                     </ul>
                 </div>
@@ -65,7 +65,7 @@ export default function Navbar() {
                             category.map(
                                 (data, key) => {
                                     return (
-                                        <Link href={'/category'}><li
+                                        <Link href={data}><li
                                             key={key}
                                             className="border-b-2 border-transparent cursor-pointer hover:border-blue-900 leading-4"
                                         >{data}</li></Link>

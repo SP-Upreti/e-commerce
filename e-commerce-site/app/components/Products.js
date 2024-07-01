@@ -23,7 +23,7 @@ export default function Products() {
         [dataNum]
     )
     return (
-        <section className="w-[89%] mx-auto py-16">
+        <section className="w-[89%] mx-auto ">
             <div className="flex justify-between items-center gap-8 flex-wrap">
                 <div className="">
                     <h2 className="font-semibold text-2xl">Popular Products</h2>

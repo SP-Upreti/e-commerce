@@ -23,9 +23,3 @@
   color: white;
   font-family: serif;
 }
-
-nav {
-  position: sticky !important;
-  top: 0;
-  left: 0;
-}

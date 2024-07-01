@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Electronic Market",
+  title: "VoltMart",
   description: "App where you get all electronic devices in a single place",
 };
 

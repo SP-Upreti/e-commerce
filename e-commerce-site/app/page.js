@@ -1,5 +1,3 @@
-import Image from "next/image";
-import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Products from "./components/Products";
 import Banner from "./components/SaleBanner";
@@ -8,13 +6,15 @@ import Footer from "./components/Footer";
 
 export default function Home() {
   return (
-    <main>
+    <main className="pt-20">
       {/* <Navbar /> */}
       <Hero />
-      <Products />
+      <div className="py-16 ">
+        <Products />
+      </div>
       <Banner />
       <Review />
-      <Footer/>
+      <Footer />
     </main>
   );
 }

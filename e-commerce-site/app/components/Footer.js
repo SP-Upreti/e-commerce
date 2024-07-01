@@ -1,3 +1,4 @@
+"use client"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
@@ -5,21 +6,29 @@ import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 
+// import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 // library.add(faFacebookF);
 
 export default function Footer() {
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        alert("newsletter submitted");
+    }
     return (
         <footer className="p-16 bg-blue-100">
             <div className="bg-white p-10 rounded-xl flex justify-evenly items-center gap-8">
                 <div className="">
                     <h2 className="font-bold text-2xl">Subscribe newsletter</h2>
                 </div>
-                <div className="newsletter flex items-center rounded-lg">
-                    <input type="email" name="" id="" placeholder="Enter email" className="bg-[var(--primary)] px-2 py-1 text-lg rounded-lg" />
-                    <div className="plane pe-4">
-                        <button><FontAwesomeIcon icon={faPaperPlane}  /></button>
+                <form action="" onSubmit={handleSubmit}>
+                    <div className="newsletter flex items-center rounded-lg overflow-hidden">
+                        <input type="email" name="" id="" placeholder="Enter email" className="bg-[var(--primary)] px-2 py-1 text-lg  focus:bg-transparent" />
+                        <div className="plane px-4" type="submit">
+                            <button><FontAwesomeIcon icon={faPaperPlane} /></button>
+                        </div>
                     </div>
-                </div>
+                </form>
                 <div className="flex gap-4">
                     <div className="">
                         <img src="vector.png" alt="" />
