@@ -65,8 +65,8 @@ export default function Navbar() {
                             category.map(
                                 (data, key) => {
                                     return (
-                                        <Link href={data}><li
-                                            key={key}
+                                        <Link href={data} key={key}><li
+
                                             className="border-b-2 border-transparent cursor-pointer hover:border-blue-900 leading-4"
                                         >{data}</li></Link>
                                     )

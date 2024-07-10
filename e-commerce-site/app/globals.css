@@ -16,10 +16,10 @@
 .newsletter {
   background-color: var(--primary);
   color: white;
-
 }
 
 .newsletter ::placeholder {
   color: white;
   font-family: serif;
 }
+
