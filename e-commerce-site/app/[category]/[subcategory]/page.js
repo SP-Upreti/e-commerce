@@ -68,9 +68,9 @@ export default function SubcategoryPage() {
                                     if (count != 1) {
                                         setCount(count - 1)
                                     }
-                                }}>+</button>
+                                }}>-</button>
                                 <button className='border border-black px-4 hover:bg-slate-300' >{count}</button>
-                                <button className='border border-black px-2 hover:bg-slate-300' onClick={() => { setCount(count + 1) }}>-</button>
+                                <button className='border border-black px-2 hover:bg-slate-300' onClick={() => { setCount(count + 1) }}>+</button>
                             </div>
 
                         </div>
