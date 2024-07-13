@@ -1,4 +1,6 @@
 "use client"
+import Link from "next/link";
+
 export default function Page() {
     return (
         <section>
@@ -6,11 +8,15 @@ export default function Page() {
                 <div className=" h-[300px]">
                     <h2 className="text-lg font-bold">Login to your account</h2>
                     <div className="mt-2">
-                        <form action="" onSubmit={(e) => { e.preventDefault(); alert("Login failed") }}>
+                        <form
+                            action=""
+                            onSubmit={(e) => {
+                                e.preventDefault();
+                            }}>
                             <div className="flex flex-col gap-4">
-                                <input className="border border-black px-2 py-[2px] rounded" type="email" placeholder="email" name="" id="" />
-                                <input className="border border-black px-2 py-[2px] rounded" type="password" placeholder="password" name="" id="" />
-                                <input className="border border-black py-[2px] rounded cursor-pointer" type="submit" name="" id="" />
+                                <input className="border border-black px-2 py-[2px] rounded" type="email" placeholder="email" name="" id="" required />
+                                <input className="border border-black px-2 py-[2px] rounded" type="password" placeholder="password" name="" id="" required />
+                                <Link href={"./"} className="border border-black py-[2px] rounded cursor-pointer flex justify-center"><input className="" type="submit" name="" id="" /></Link>
                             </div>
                         </form>
                     </div>

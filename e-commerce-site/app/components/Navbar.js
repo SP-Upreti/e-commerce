@@ -54,7 +54,7 @@ export default function Navbar() {
                 <div className="">
                     <ul className="flex items-center gap-10">
                         <Link href={'/login'}><li>Login</li></Link>
-                        <li><FontAwesomeIcon icon={faShoppingCart} width={"30px"} /></li>
+                        <Link href={"/cart"}><li><FontAwesomeIcon icon={faShoppingCart} width={"30px"} /></li></Link>
                     </ul>
                 </div>
             </div>
